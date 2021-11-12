@@ -1,6 +1,10 @@
 <% @lists.each do |list| %>
+<% if list.photo.attached? %>
+<%= cl_image_tag list.photo&.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+<%= image_tag "https://source.unsplash.com/random", height: 300, width: 400, crop: :fill %>
+<% end %>
 <h2><%= link_to list.name, list_path(list) %></h2>
-<%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 
 <%= link_to "Add a list", new_list_path %>
