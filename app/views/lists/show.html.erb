@@ -5,7 +5,12 @@
 <img src="<%= bookmark.movie.poster_url %>" alt="">
 <p><%= bookmark.movie.overview %></p>
 <%= bookmark.comment %>
+<%= link_to "Delete",
+                  bookmark_path(bookmark),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
 <% end %>
 
+
 <%= link_to "Add a movie", new_list_bookmark_path(@list) %>
-<%= link_to "Back to the lists", lists_path %>
+<%= link_to "Back to the lists", home_path %>
